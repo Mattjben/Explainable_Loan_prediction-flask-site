@@ -33,8 +33,8 @@ This project can be seperated into five phases:
 ## **Git Contents & Structure**
 - "Datasets" Folder holds all the data we use
 - "Jupyter-Notebooks" Folder Holds all the notebooks we use & also the back-end code base we use
-- "App-Design" Folder Holds all the front-end Stuff such as the app and the code base for it
-- "Docs" Folder holds all the documents in the folder such as the draft and so forth. Make some subfolders for it.
+- "Frontend" Folder Holds all the front-end Stuff such as the app and the code base for it
+
 
 ## **Dataset description:**
 **Definitions and special values:**              
