@@ -1,5 +1,13 @@
-# CSIDS-Finance
-Case Studies In Data Science Group WIL Project (WIL Project Group 8)
+# Explainable Loan Prediction
+The aim of this project was to design and implement a loan prediction app that both predicted the risk level of customers based on their banking data and outputted a detailed explanation to prevent unethical buissness practices. 
+
+This project can be seperated into five phases: 
+1. Data wrangling 
+2. Model testing and analysis (jupyter-notbook directory)
+3. Front end development 
+4. Web hosting (orginally hosted on heroku , however link has expired as of 2023)
+5. Report summmary 
+
 
 
 ## **Members**
