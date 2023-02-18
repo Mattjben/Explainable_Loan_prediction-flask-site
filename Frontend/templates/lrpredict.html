@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+
+    <!-- Web page CSS -->
+    <link rel="stylesheet" href="static/css/main.css" />
+
+ 
+
+    <title>Data Janitors</title>
+    <link rel="icon"  href="static/uploads/RMIT-emblem.jpg"width=60 height=35 >
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav>
+        <a href="{{ url_for('Intro') }}" class="logo">
+          <h1>
+            <span class="rmit"></span><img src="static/uploads/RMIT-emblem.jpg" width=50 height=35 alt=""></span>
+            <span class="title"> Data Janitors</span>
+                
+          </h1>
+        </a>
+        <ul>
+           
+            <li class="nav-item">
+                <a href="{{ url_for('home') }}" class="nav-link" id="nav-link">Decision Tree</a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ url_for('lr') }}" class="nav-link" id="nav-link">Logistic Regression</a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ url_for('lgbm') }}" class="nav-link" id="nav-link">LightGBM</a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ url_for('risk') }}" class="nav-link" id="nav-link"
+                  >Risk Mitigation</a
+                >
+              </li>
+           
+        </ul>
+     </nav>
+        
+  
+    
+
+        
+    
+     <section class="predict">
+        <div class="predtxt">
+    
+        <h1>
+            Loan Repayment Risk Predictions By Client
+        </h1>
+        <div class="child 1">
+            <br>
+            <br>
+            {% for user in credit %}
+            <tr>
+              
+                <p align="center">Risk prediction for <u>{{ user }}</u>: </p>
+                <br>
+                    <p align = "center"><b>{{ credit[user] }}</b></p>
+                    <br>
+                    <ol>
+                    <p><b>Top 5 Influencing features:</b></p>
+                    {% for line in prediction[user] %}
+                   
+                    
+                    
+                      <li>{{ line }}</li>
+                      
+                    
+                  
+                    {% endfor %}
+                  </ol>
+                  <br>
+                  {% if credit[user] == 'High Risk' %}
+              <a class="btn blue" href="{{ url_for('risk') }}" >Risk Mitigation</a>
+              {% endif %}
+            {% endfor %}
+                </div>
+          <div class="child 2">
+            <p align="center"><b></n>Table of coefficients for logistic model<u>{{ user }}</u>: </b></p>
+                {{ table|safe}}
+              </div>
+            </div>
+            <h3>
+              Return to homepage for further explanation of features.
+            </h3>
+            <p> </p>
+            <p> </p>
+            <p> </p>
+           
+     </section>
+    </body>
+</html>

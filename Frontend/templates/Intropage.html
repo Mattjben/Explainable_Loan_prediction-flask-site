@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+
+    <!-- Web page CSS -->
+    <link rel="stylesheet" href="static/css/main.css" />
+
+
+
+ 
+
+    <title>Data Janitors</title>
+    <link rel="icon"  href="static/uploads/RMIT-emblem.jpg"width=60 height=35 >
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav>
+        <a href="{{ url_for('Intro') }}" class="logo">
+          <h1>
+            <span class="rmit"></span><img src="static/uploads/RMIT-emblem.jpg" width=50 height=35 alt=""></span>
+            <span class="title"> Data Janitors</span>
+                
+          </h1>
+        </a>
+        <ul>
+
+            <li class="nav-item">
+              <a href="{{ url_for('home') }}" class="nav-link" id="nav-link">Decision Tree</a>
+            </li>
+            <li class="nav-item">
+              <a href="{{ url_for('lr') }}" class="nav-link" id="nav-link">Logistic Regression</a>
+            </li>
+            <li class="nav-item">
+              <a href="{{ url_for('lgbm') }}" class="nav-link" id="nav-link">LightGBM</a>
+            </li>
+            <li class="nav-item">
+              <a href="{{ url_for('risk') }}" class="nav-link" id="nav-link"
+                >Risk Mitigation</a
+              >
+            </li>
+           
+    </ul>
+  </nav>
+
+
+
+
+    <!-- Hero section -->
+    <section class="hero">
+        <div class="intro-text">
+          <h1>
+            <span class="Dtitle"> Welcome to Group 8's<br />Explainable Financial Risk Performance Model</span> <br />
+          </h1>
+           
+          <p>
+            
+            The aim of this model is to provide an equitable service that can be used by small financial brokers or loan providers to assess the suitability of a potential client who does not
+            has limited financial history with that provider. This model takes only 10 features of the potential client’s financial situation and can return a
+            recommendation as to whether the loan to the client will be risky or not. The model is an explainable model, and therefore will explain the 
+            models exact reasoning as to what factors of the potential client’s financial situation lead the recommendation the model made. If not 
+            all the necessary information is known the model will also take this into account and still return a recommendation. This is helpful for smaller
+            brokers who do not have the large databases and customer history or financial means to create their own models.
+
+           
+            
+          </p>
+          
+
+          
+        
+        
+        
+    </div>
+      </section>
+      <section class="space"id="space">
+        <form action="/home" target="_blank">
+          <h1>
+            Dataset Description
+          </h1>
+        <h2><b>Definitions and special values:</b></h4>
+          <p>            
+            <b>Inquiry:</b> Hard credit inquiries which occur when a creditor has requested to look at your credit file (e.g., when applying for new credit card) <br>
+            large amounts of inquires on a file could indicate uncertainty /instability (e.g. filing for multiple cards at once)
+            <br>
+            <b>Inq excl 7days:</b> Generally, multiple inquires made within the same 7 days are attributed to price comparison shopping and therefore aren’t an indication of instability 
+            <br>
+            <b>Derogatory comment:</b> Negative item in your credit reports (e.g. caused by 180+ days late payments , creditor takes possession of property due to non-payment , files for bankruptcy etc.) 
+            <br>
+            <b>Delinquency:</b> Refers to a payment received some period past its due date
+            <br>
+            <b>Instalment trade:</b> Credit agreements you make to pay an account over time (e.g., home loan)
+            <br>
+            <b>Revolving trade:</b> A credit agreement that provides you with a credit limit you’re allowed to use and pay back over time. 
+            <br>
+            <b>-9:</b> No Bureau Record or No Investigation (Missing value)      
+            <br>     
+            <b>-8:</b> No Usable/Valid Accounts Trades or Inquiries - inactive/very old account
+            <br>                       
+            <b>-7:</b> Condition not Met (e.g., someone has no delinquencies in the last 12 months, different form 0 as 0 means no delinquencies ever)  </p>
+          </b>
+          <table class="content-table">
+            <thead>
+              <tr>
+                <th>Variable names</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>ExternalRiskEstimate </td>
+                <td>Customer credit score </td>
+              </tr>
+              <tr>
+                <td>MSinceOldestTradeOpen</td>
+                <td>Months since oldest approved credit agreement</td>
+              </tr>
+              <tr>
+                <td>MSinceMostRecentTradeOpen</td>
+                <td>Months since last approved credit agreement</td>
+              </tr>
+              <tr>
+                <td>AverageMInFile</td>
+                <td>Average Months in File</td>
+              </tr>
+              <tr>
+                <td>NumSatisfactoryTrades</td>
+                <td>number of credit agreements on a consumer credit bureau report with on-time payments</td>
+              </tr>
+              <tr>
+                <td>NumTrades60Ever2DerogPubRec</td>
+                <td>the number of credit agreements on a credit bureau report that record a payment received 60 days past its due date</td>
+              </tr>
+              <tr>
+                <td>NumTrades90Ever2DerogPubRec</td>
+                <td>the number of credit agreements on a credit bureau report that record a payment received 90 days past its due date</td>
+              </tr>
+              <tr>
+                <td>PercentTradesNeverDelq</td>
+                <td>Percentage of credit agreements on a consumer credit bureau report with on-time payments</td>
+              </tr>
+              <tr>
+                <td>MSinceMostRecentDelq</td>
+                <td>Months since most recent overdue payment</td>
+              </tr>
+              <tr>
+                <td>MaxDelq2PublicRecLast12M</td>
+                <td>Maximum number of credit agreements with overdue payments or derogatory comments in the last 12 months</td>
+              </tr>
+              <tr>
+                <td>MaxDelqEver</td>
+                <td>Maximum number of credit agreements with overdue payments</td>
+              </tr>
+              <tr>
+                <td>NumTotalTrades</td>
+                <td>Total number of credit agreements</td>
+              </tr>
+              <tr>
+                <td>NumTradesOpeninLast12M</td>
+                <td>Total number of credit agreements open in the last 12 months</td>
+              </tr>
+              <tr>
+                <td>PercentInstallTrades</td>
+                <td>Percent Installment Trades</td>
+              </tr>
+              <tr>
+                <td>MSinceMostRecentInqexcl7days</td>
+                <td>Months Since Most Recent inquiry, excluding the last 7 days</td>
+              </tr>
+              <tr>
+                <td>NumInqLast6M</td>
+                <td>Number of inquires in the last 6 months</td>
+              </tr>
+              <tr>
+                <td>NumInqLast6Mexcl7days</td>
+                <td>Number of inquires in the last 6 months, excluding the last 7 days </td>
+              </tr>
+              <tr>
+                <td>NetFractionRevolvingBurden</td>
+                <td>RevolvingBurden = (portion of credit card spending that goes unpaid at the end of a billing cycle)/ credit limit</td>
+              </tr>
+              <tr>
+                <td>NetFractionInstallBurden</td>
+                <td>InstallBurden = (portion of loan that goes unpaid at the end of a billing cycle)/ (monthly instalment to be paid)</td>
+              </tr>
+              <tr>
+                <td>NumRevolvingTradesWBalance</td>
+                <td>Number of revolving trades currently not fully paid off</td>
+              </tr>
+              <tr>
+                <td>NumInstallTradesWBalance</td>
+                <td>Number of instalment trades currently not fully paid off</td>
+              </tr>
+              <tr>
+                <td>NumBank2NatlTradesWHighUtilization</td>
+                <td>Number of bank trades with high utilization ratio utilization ratio: percentage of available credit you're using on your revolving credit accounts (higher means your close to maxing out)</td>
+              </tr>
+              <tr>
+                <td>PercentTradesWBalance</td>
+                <td>Number of trades currently not fully paid off</td>
+              </tr>
+            </tbody>
+          </table>
+          <a class="btn red" href="{{ url_for('home') }}" >Descion Tree Model</a>
+          <a class="btn blue" href="https://drive.google.com/drive/folders/1SCreh1F12HDJx1vuw9Xpm3QVMS_UBmzH" >Dataset Source</a>
+      </section>
+     
+      
+
+    <!-- About section -->
+    <section class="about" id="about">
+        <h3>Student Info</h3>
+        <p>
+          Matthew Bentham S3923076 <br />
+          John Murrowood S3923075 <br />
+          Alex Peter Thomas S3925735 <br />
+          Isxaq Warsame S3658179 <br />
+          Simran Sidhanti S3940756 <br />
+          Udit Dinesh S3879492 <br />
+
+        </p>
+  
+        
+      </section>
+
+
+  </body>
+
+
+
+

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+
+    <!-- Web page CSS -->
+    <link rel="stylesheet" href="static/css/main.css" />
+
+ 
+
+    <title>Data Janitors</title>
+    <link rel="icon"  href="static/uploads/RMIT-emblem.jpg"width=60 height=35 >
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav>
+        <a href="{{ url_for('Intro') }}" class="logo">
+          <h1>
+            <span class="rmit"></span><img src="static/uploads/RMIT-emblem.jpg" width=50 height=35 alt=""></span>
+            <span class="title"> Data Janitors</span>
+                
+          </h1>
+        </a>
+        <ul>
+           
+            <li class="nav-item">
+              <a href="{{ url_for('home') }}" class="nav-link" id="nav-link">Decision Tree</a>
+            </li>
+            <li class="nav-item">
+              <a href="{{ url_for('lr') }}" class="nav-link" id="nav-link">Logistic Regression</a>
+            </li>
+            <li class="nav-item">
+              <a href="{{ url_for('lgbm') }}" class="nav-link" id="nav-link">LightGBM</a>
+            </li>
+            <li class="nav-item">
+              <a href="{{ url_for('risk') }}" class="nav-link" id="nav-link"
+                >Risk Mitigation</a
+              >
+            </li>
+           
+        </ul>
+     </nav>
+        
+  
+    
+
+        
+    
+     <section class="modelin">
+        <div class="modeltxt">
+    
+        <h1>
+            Welcome to loan repayment risk predictor
+        </h1>
+        <p>
+            <b>Input type:</b> CSV containg 23 datapoints <br>
+            
+        </p>
+            
+            <span class="success">file uploaded successfully </span>
+
+            <form action="/predictlgbm" target="_blank"method="post">
+                <a class="btn red" href="{{ url_for('predictlgbm') }}" >Predict</a>
+                
+            </form
+            
+            
+        </section>
+        
+            
+       
+   
+</div>
+
+</body> 

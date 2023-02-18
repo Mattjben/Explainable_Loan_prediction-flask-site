@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+
+    <!-- Web page CSS -->
+    <link rel="stylesheet" href="static/css/main.css" />
+
+ 
+
+    <title>Data Janitors</title>
+    <link rel="icon"  href="static/uploads/RMIT-emblem.jpg"width=60 height=35 >
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav>
+        <a href="{{ url_for('Intro') }}" class="logo">
+          <h1>
+            <span class="rmit"></span><img src="static/uploads/RMIT-emblem.jpg" width=50 height=35 alt=""></span>
+            <span class="title"> Data Janitors</span>
+                
+          </h1>
+        </a>
+        <ul>
+           
+          <li class="nav-item">
+            <a href="{{ url_for('home') }}" class="nav-link" id="nav-link">Decision Tree</a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ url_for('lr') }}" class="nav-link" id="nav-link">Logistic Regression</a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ url_for('lgbm') }}" class="nav-link" id="nav-link">LightGBM</a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ url_for('risk') }}" class="nav-link" id="nav-link"
+              >Risk Mitigation</a
+            >
+          </li>
+           
+        </ul>
+     </nav>
+        
+  
+    
+
+        
+    
+     <section class="predict">
+        <div class="predtxt">
+    
+        <h1>
+            Loan Repayment Risk Predictions By Client
+        </h1>
+
+            <br>
+            <br>
+            {% for user in your_list %}
+            <tr>
+              
+                <p align="center">Risk prediction for <u>{{ user }}</u>: </p>
+                
+                    <p ><b>{{ pred[user] }}</b></p>
+
+              
+                    <ol>
+                {% for vals in your_list[user] %}
+                
+                <li>{{ vals }} </li>
+              
+                {% endfor %}
+              </ol>
+
+            </div>
+              <div class="imgcont">
+                <img src="{{ img[loop.index -1] }}"alt="tree" style="margin:0% 0px 0% 0px">
+              </div>
+              {% if pred[user] == 'High Risk' %}
+              <a class="btn blue" href="{{ url_for('risk') }}" >Risk Mitigation</a>
+              {% endif %}
+            </tr>      
+            {% endfor %}
+
+            <h3>
+              Return to homepage for further explanation of features.
+            </h3>
+            <p> </p>
+            <p> </p>
+            <p> </p>
+     </section>
+    </body>
+</html>

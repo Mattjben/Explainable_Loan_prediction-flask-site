@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+
+    <!-- Web page CSS -->
+    <link rel="stylesheet" href="static/css/main.css" />
+
+  
+
+    <title>Data Janitors</title>
+    <link rel="icon"  href="static/uploads/RMIT-emblem.jpg"width=60 height=35 >
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav>
+        <a href="{{ url_for('Intro') }}" class="logo">
+          <h1>
+            <span class="rmit"></span><img src="static/uploads/RMIT-emblem.jpg" width=50 height=35 alt=""></span>
+            <span class="title"> Data Janitors</span>
+                
+          </h1>
+        </a>
+        <ul>
+           
+          <li class="nav-item">
+            <a href="{{ url_for('home') }}" class="nav-link" id="nav-link">Decision Tree</a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ url_for('lr') }}" class="nav-link" id="nav-link">Logistic Regression</a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ url_for('lgbm') }}" class="nav-link" id="nav-link">LightGBM</a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ url_for('risk') }}" class="nav-link" id="nav-link"
+              >Risk Mitigation</a
+            >
+          </li>
+           
+        </ul>
+     </nav>
+      
+    
+     <section class="predict">
+        <div class="predtxt">
+    
+        <h1>
+            Risk Mitigation Plans
+        </h1>
+        <p></p>
+        <p><b>
+          If Data Janitor models predict a potential client is of high risk, 
+          the following Strategies can be used to mitigate some risk so the client 
+          can still be taken on with some strategies in place.</b>
+        </p>
+     </section>
+     
+<div class="background">
+  <div class="container">
+    <div class="panel pricing-table">
+      
+      <div class="pricing-plan">
+        <div class="points">
+<img src="https://i.postimg.cc/15GS18V8/coins.png"width="100" 
+height="100" alt="" class="pricing-img">
+
+        <h2 class="pricing-header">Perform Risk Based Pricing</h2>
+        <br>
+        </div>
+        <li>Tailor interest rates based on high risk or low risk.</li>
+        <br>
+        <li>Give higher risk clients higher interest rate or cost of credit</li>
+        <br>
+        <li>In order to provide buffer for potential cash flow disruption and cost of recovering loans</li>
+        <br>
+        <li>Set lower credit limits and restrictions on amount that can be borrowed</li>
+
+      
+      </div>
+      
+      <div class="pricing-plan">
+        <div class="points">
+        <img src="https://i.postimg.cc/x8t1YqcD/contract.png"width="100" 
+        height="100" alt="" class="pricing-img">
+        <h2 class="pricing-header">Insert financial covenants</h2>
+        <br>
+      </div>
+        <li>Manage high risk clients by agreeing to a debt covenant with high risk client.</li> <br>
+        <li>Establishes predetermined agreement with client ensuring they stick to certain conditions with their finances.</li> <br>
+        <li>Can include a set leverage ratio (cannot take on additional debt without increasing income).</li><br>
+        <li>If covenant is broken, creditor can take steps to recover funds and cancel debt facilities.</li><br>
+      
+      </div>
+      
+      <div class="pricing-plan">
+        <div class="points">
+        <img src="https://i.postimg.cc/Vvw7qkfh/tax.png" width="100" 
+        height="100" alt="" class="pricing-img">
+        <h2 class="pricing-header">Periodic Financial Reporting</h2>
+        <br>
+      </div>
+      <li>Request a high risk client send in financial statements or tax records as proof of income and expenses.</li><br>
+      <li>Agree for records to be sent in on a monthly, quarterly, semi-annual or annual basis.</li><br>
+      <li>Creditor will be able to see when a client may start having trouble paying off loans.</li><br>
+      <li>Will be able to take steps to recover funds and not be hit with unexpected cash flow issues.</li><br>
+
+      
+        
+      </div>
+      
+    </div>
+  </div>
+</div
+   
+</html>
